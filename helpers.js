@@ -50,12 +50,10 @@ export function arcIf(condition, x, y, r = 1) {
 }
 
 /**
- * The sleep function in JavaScript pauses the execution of code for a specified number of
- * milliseconds.
- * @param ms - The parameter "ms" represents the number of milliseconds to sleep or delay the execution
- * of code.
- * @returns The `sleep` function returns a Promise.
+ * The function "drawAllCircles" draws circles on a grid based on the values in the grid.
  */
-export function sleep(ms) {
-  return new Promise((r) => setTimeout(r, ms));
+export function drawAllCircles() {
+  grid().forEach((i, p, value) => {
+    arcIf(Boolean(value), i, p, 10);
+  });
 }
