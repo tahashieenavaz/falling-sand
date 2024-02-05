@@ -1,10 +1,11 @@
+import Collection from "./Collection";
 import Repository from "./Repository";
 
 export default class Engine {
   constructor() {
     this.doc = document.body || document.documentElement;
-
     this.createCanvas();
+    this.createGrid();
     this.addElements();
   }
 
@@ -19,6 +20,13 @@ export default class Engine {
 
   addElements() {
     this.addElement(Repository.canvas);
+  }
+
+  /**
+   * The function creates a grid with the dimensions of the inner window width and height.
+   */
+  createGrid() {
+    Repository.grid = new Collection(innerWidth, innerHeight);
   }
 
   createCanvas() {
