@@ -1,8 +1,8 @@
 import "./style.css";
 import createCanvas from "@functions/createCanvas";
-import append from "@functions/append";
+import appendBody from "@functions/appendBody";
 
 const canvas = createCanvas();
-append(canvas);
+appendBody(canvas);
 
 // makeGrid(canvas, 10, 10);
