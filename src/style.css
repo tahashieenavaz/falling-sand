@@ -5,4 +5,10 @@
 }
 body {
   background: #131313;
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+}
+canvas {
+  border: 1px solid white;
 }
