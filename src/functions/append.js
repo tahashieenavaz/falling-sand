@@ -1,3 +1,3 @@
-export default function append(element, parent = document.body) {
+export default function append(element, parent) {
   parent.appendChild(element);
 }
