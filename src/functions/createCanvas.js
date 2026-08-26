@@ -5,7 +5,7 @@ export default function createCanvas(
   height = innerHeight / 2,
 ) {
   const $element = createElement("canvas");
-  $element.innerWidth = width;
-  $element.innerHeight = height;
+  $element.width = width;
+  $element.height = height;
   return $element;
 }
