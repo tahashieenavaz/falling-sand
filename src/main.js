@@ -1,7 +1,5 @@
 import "./style.css";
+import createCanvas from "@functions/createCanvas";
 
-const canvas = document.createElement("canvas");
-canvas.width = innerWidth / 2;
-canvas.height = innerHeight / 2;
-
+const canvas = createCanvas();
 document.appendChild(canvas);
