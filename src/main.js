@@ -5,8 +5,8 @@ import makeGrid from "@functions/makeGrid";
 import isolate from "@functions/isolate";
 import createBoard from "./functions/createBoard";
 
-const ROWS = 50;
-const COLS = 50;
+const ROWS = getConfig("rows");
+const COLS = getConfig("cols");
 
 const canvas = createCanvas();
 const dx = canvas.width / COLS;
