@@ -33,24 +33,11 @@ canvas.addEventListener("mousedown", (event) => {
   isolate(canvas, (context) =>
     context.clearRect(0, 0, canvas.width, canvas.height),
   );
-  makeGrid(canvas, ROWS, COLS);
-  whiteRectangles.forEach((rectangle) => {
-    isolate(canvas, (context) => {
-      context.fillStyle = "white";
-      context.fillRect(rectangle[0] * dx, rectangle[1] * dy, dx, dy);
-      context.fill();
-    });
-    const nextRectangles = whiteRectangles.filter(
-      (r) => rectangle[0] == r[0] && rectangle[1] == r[1] + 1,
-    );
-    console.log(nextRectangles.length);
-    if (rectangle[1] < ROWS - 1 && !nextRectangles.length) {
-      rectangle[1] += 0.5;
-      if (rectangle[1] > ROWS - 1) {
-        rectangle[1] = ROWS - 1;
-      }
-    }
+  isolate(canvas, (context) => {
+    context.fillStyle = "white";
+    context.fillRect(rectangle[0] * dx, rectangle[1] * dy, dx, dy);
+    context.fill();
   });
-
+  makeGrid(canvas, ROWS, COLS);
   requestAnimationFrame(animate);
 })();
