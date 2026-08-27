@@ -6,6 +6,9 @@ export default defineConfig({
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),
       "@functions": fileURLToPath(new URL("./src/functions", import.meta.url)),
+      "@namespaces": fileURLToPath(
+        new URL("./src/namespaces", import.meta.url),
+      ),
     },
   },
 });
