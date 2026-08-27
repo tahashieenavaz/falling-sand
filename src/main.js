@@ -1,7 +1,7 @@
 import "./style.css";
 import createCanvas from "@functions/createCanvas";
 import appendBody from "@functions/appendBody";
-import makeGrid from "@functions/makeGrid";
+import drawGrid from "@functions/drawGrid";
 import isolate from "@functions/isolate";
 import createBoard from "@functions/createBoard";
 import getConfig from "@functions/getConfig";
@@ -26,7 +26,7 @@ canvas.addEventListener("mousedown", (event) => {
   const indexX = Math.floor((x / canvas.width) * COLS);
   const indexY = Math.floor((y / canvas.height) * ROWS);
 
-  whiteRectangles.push([indexX, indexY]);
+  board[indexX][indexY] = 1;
 });
 
 (function animate() {
@@ -38,6 +38,7 @@ canvas.addEventListener("mousedown", (event) => {
     context.fillRect(rectangle[0] * dx, rectangle[1] * dy, dx, dy);
     context.fill();
   });
-  makeGrid(canvas, ROWS, COLS);
+  drawGrid(canvas, ROWS, COLS);
+  drawBoard(canvas, board);
   requestAnimationFrame(animate);
 })();
