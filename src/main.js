@@ -34,3 +34,12 @@ let lastUpdate = 0;
   updateBoard(board);
   requestAnimationFrame(animate);
 })();
+
+document
+  .querySelectorAll("button")
+  .filter((button) => button.dataset.click)
+  .forEach((button) => {
+    button.addEventListener("click", (event) => {
+      mode = button.dataset.click ?? "classic";
+    });
+  });
