@@ -3,7 +3,8 @@ import createCanvas from "@functions/createCanvas";
 import appendBody from "@functions/appendBody";
 import makeGrid from "@functions/makeGrid";
 import isolate from "@functions/isolate";
-import createBoard from "./functions/createBoard";
+import createBoard from "@functions/createBoard";
+import getConfig from "@functions/getConfig";
 
 const ROWS = getConfig("rows");
 const COLS = getConfig("cols");
