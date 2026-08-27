@@ -28,7 +28,6 @@ canvas.addEventListener("mousedown", (event) => {
   const indexX = Math.floor((x / canvas.width) * COLS);
   const indexY = Math.floor((y / canvas.height) * ROWS);
 
-  console.log(indexX, indexY, board);
   board[indexX][indexY] = 1;
 });
 

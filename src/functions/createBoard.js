@@ -3,5 +3,5 @@ export default function createBoard(...args) {
     throw new Error("createBoard accepts two args: rows, cols.");
   }
 
-  return Array.from({ length: args[1] }, () => Array(args[0]).fill(0));
+  return Array.from({ length: args[0] }, () => Array(args[1]).fill(0));
 }
