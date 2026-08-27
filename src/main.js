@@ -6,13 +6,13 @@ import drawBoard from "@functions/drawBoard";
 import isolate from "@functions/isolate";
 import createBoard from "@functions/createBoard";
 import getConfig from "@functions/getConfig";
+import getDifferentials from "./functions/getDifferentials";
 
 const ROWS = getConfig("rows");
 const COLS = getConfig("cols");
 
 const canvas = createCanvas();
-const dx = canvas.width / COLS;
-const dy = canvas.height / ROWS;
+const [dx, dy] = getDifferentials();
 
 appendBody(canvas);
 
