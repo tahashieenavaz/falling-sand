@@ -1,12 +1,14 @@
 import "./style.css";
-import createCanvas from "@functions/createCanvas";
 import appendBody from "@functions/appendBody";
-import drawGrid from "@functions/drawGrid";
+import createCanvas from "@functions/createCanvas";
+
 import isolate from "@functions/isolate";
+
 import getConfig from "@functions/getConfig";
 import getDifferentials from "@functions/getDifferentials";
 import getDimensions from "@functions/getDimensions";
 
+import drawGrid from "@functions/drawGrid";
 import drawBoard from "@functions/drawBoard";
 import createBoard from "@functions/createBoard";
 import updateBoard from "@functions/updateBoard";
