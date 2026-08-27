@@ -13,17 +13,14 @@ import updateBoard from "@functions/updateBoard";
 import clearBoard from "@functions/clearBoard";
 
 import CanvasEvents from "./namespaces/CanvasEvents";
+import addCanvasEvents from "./functions/addCanvasEvents";
 
 const canvas = createCanvas();
 const board = createBoard();
 const [dx, dy] = getDifferentials(canvas);
 const [ROWS, COLS] = getDimensions();
 
-canvas.addEventListener("mousedown", CanvasEvents.mousedown);
-canvas.addEventListener("mouseup", CanvasEvents.mouseup);
-canvas.addEventListener("mousemove", (event) => {
-  CanvasEvents.mousemove(event, canvas, board);
-});
+addCanvasEvents(canvas, board);
 appendBody(canvas);
 
 let lastUpdate = 0;
