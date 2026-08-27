@@ -12,11 +12,9 @@ export default function drawBoard(canvas, board) {
           continue;
         }
 
-        isolate(canvas, (context) => {
-          context.fillStyle = "white";
-          context.fillRect(i * dx, p * dy, dx, dy);
-          context.fill();
-        });
+        context.fillStyle = "white";
+        context.fillRect(p * dx, i * dy, dx, dy);
+        context.fill();
       }
     }
   });

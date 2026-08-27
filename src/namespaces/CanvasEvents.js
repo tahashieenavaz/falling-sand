@@ -21,6 +21,6 @@ export default class CanvasEvents {
     const y = event.clientY - rect.top;
     const indexX = Math.floor((x / canvas.width) * getConfig("cols"));
     const indexY = Math.floor((y / canvas.height) * getConfig("rows"));
-    board[indexX][indexY] = 1;
+    board[indexY][indexX] = 1;
   }
 }
