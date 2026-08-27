@@ -5,6 +5,7 @@ import drawGrid from "@functions/drawGrid";
 import drawBoard from "@functions/drawBoard";
 import isolate from "@functions/isolate";
 import createBoard from "@functions/createBoard";
+import updateBoard from "@functions/updateBoard";
 import getConfig from "@functions/getConfig";
 import getDifferentials from "./functions/getDifferentials";
 
@@ -37,5 +38,6 @@ canvas.addEventListener("mousedown", (event) => {
   );
   drawGrid(canvas, ROWS, COLS);
   drawBoard(canvas, board);
+  updateBoard(board);
   requestAnimationFrame(animate);
 })();
