@@ -2,6 +2,7 @@ import "./style.css";
 import createCanvas from "@functions/createCanvas";
 import appendBody from "@functions/appendBody";
 import drawGrid from "@functions/drawGrid";
+import drawBoard from "@functions/drawBoard";
 import isolate from "@functions/isolate";
 import createBoard from "@functions/createBoard";
 import getConfig from "@functions/getConfig";
@@ -16,7 +17,7 @@ const dy = canvas.height / ROWS;
 appendBody(canvas);
 
 const whiteRectangles = [];
-const board = createBoard();
+const board = createBoard(ROWS, COLS);
 
 canvas.addEventListener("mousedown", (event) => {
   const rect = canvas.getBoundingClientRect();
@@ -26,6 +27,7 @@ canvas.addEventListener("mousedown", (event) => {
   const indexX = Math.floor((x / canvas.width) * COLS);
   const indexY = Math.floor((y / canvas.height) * ROWS);
 
+  console.log(indexX, indexY, board);
   board[indexX][indexY] = 1;
 });
 
@@ -33,11 +35,11 @@ canvas.addEventListener("mousedown", (event) => {
   isolate(canvas, (context) =>
     context.clearRect(0, 0, canvas.width, canvas.height),
   );
-  isolate(canvas, (context) => {
-    context.fillStyle = "white";
-    context.fillRect(rectangle[0] * dx, rectangle[1] * dy, dx, dy);
-    context.fill();
-  });
+  // isolate(canvas, (context) => {
+  //   context.fillStyle = "white";
+  //   context.fillRect(rectangle[0] * dx, rectangle[1] * dy, dx, dy);
+  //   context.fill();
+  // });
   drawGrid(canvas, ROWS, COLS);
   drawBoard(canvas, board);
   requestAnimationFrame(animate);
