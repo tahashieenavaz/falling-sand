@@ -7,20 +7,18 @@ import isolate from "@functions/isolate";
 import createBoard from "@functions/createBoard";
 import updateBoard from "@functions/updateBoard";
 import getConfig from "@functions/getConfig";
-import getDifferentials from "./functions/getDifferentials";
+import getDifferentials from "@functions/getDifferentials";
+import getDimensions from "@functions/getDimensions";
 
-const ROWS = getConfig("rows");
-const COLS = getConfig("cols");
-
+const [ROWS, COLS] = getDimensions();
 const canvas = createCanvas();
 const [dx, dy] = getDifferentials(canvas);
 
 appendBody(canvas);
 
-const whiteRectangles = [];
 const board = createBoard(ROWS, COLS);
-let isMouseDown = false;
 
+let isMouseDown = false;
 canvas.addEventListener("mousedown", () => {
   isMouseDown = true;
 });
