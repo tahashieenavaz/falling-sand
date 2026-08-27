@@ -19,15 +19,24 @@ appendBody(canvas);
 
 const whiteRectangles = [];
 const board = createBoard(ROWS, COLS);
+let isMouseDown = false;
 
-canvas.addEventListener("mousedown", (event) => {
+canvas.addEventListener("mousedown", () => {
+  isMouseDown = true;
+});
+canvas.addEventListener("mouseup", () => {
+  isMouseDown = false;
+});
+canvas.addEventListener("mousemove", (event) => {
+  if (!isMouseDown) {
+    return;
+  }
+
   const rect = canvas.getBoundingClientRect();
   const x = event.clientX - rect.left;
   const y = event.clientY - rect.top;
-
   const indexX = Math.floor((x / canvas.width) * COLS);
   const indexY = Math.floor((y / canvas.height) * ROWS);
-
   board[indexX][indexY] = 1;
 });
 
