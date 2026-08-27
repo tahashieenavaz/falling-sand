@@ -17,6 +17,8 @@ import clearBoard from "@functions/clearBoard";
 import CanvasEvents from "@namespaces/CanvasEvents";
 import addCanvasEvents from "@functions/addCanvasEvents";
 
+let mode = "classic";
+
 const canvas = createCanvas();
 const board = createBoard();
 const [dx, dy] = getDifferentials(canvas);
@@ -30,13 +32,12 @@ let lastUpdate = 0;
 (function animate(timestamp) {
   clearBoard(canvas);
   drawGrid(canvas, ROWS, COLS);
-  drawBoard(canvas, board);
+  drawBoard(canvas, board, mode);
   updateBoard(board);
   requestAnimationFrame(animate);
 })();
 
-document
-  .querySelectorAll("button")
+Array.from(document.querySelectorAll("button"))
   .filter((button) => button.dataset.click)
   .forEach((button) => {
     button.addEventListener("click", (event) => {
