@@ -26,7 +26,7 @@ const board = new Board();
 const [dx, dy] = getDifferentials(canvas);
 const [ROWS, COLS] = getDimensions();
 
-addCanvasEvents(canvas, board.get());
+addCanvasEvents(canvas, board);
 appendBody(canvas);
 
 let lastUpdate = 0;
