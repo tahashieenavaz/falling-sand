@@ -4,11 +4,14 @@ import appendBody from "@functions/appendBody";
 import drawGrid from "@functions/drawGrid";
 import drawBoard from "@functions/drawBoard";
 import isolate from "@functions/isolate";
-import createBoard from "@functions/createBoard";
-import updateBoard from "@functions/updateBoard";
 import getConfig from "@functions/getConfig";
 import getDifferentials from "@functions/getDifferentials";
 import getDimensions from "@functions/getDimensions";
+
+import createBoard from "@functions/createBoard";
+import updateBoard from "@functions/updateBoard";
+import clearBoard from "@functions/clearBoard";
+
 import CanvasEvents from "./namespaces/CanvasEvents";
 
 const [ROWS, COLS] = getDimensions();
@@ -24,13 +27,15 @@ canvas.addEventListener("mouseup", CanvasEvents.mouseup);
 canvas.addEventListener("mousemove", (event) => {
   CanvasEvents.mousemove(event, canvas, board);
 });
+let lastUpdate = 0;
 
-(function animate() {
-  isolate(canvas, (context) =>
-    context.clearRect(0, 0, canvas.width, canvas.height),
-  );
+(function animate(timestamp) {
+  if (timestamp - lastUpdate > 1000) {
+    lastUpdate = timestamp;
+    clearBoard(canvas);
+    updateBoard(board);
+  }
   drawGrid(canvas, ROWS, COLS);
   drawBoard(canvas, board);
-  updateBoard(board);
   requestAnimationFrame(animate);
 })();
