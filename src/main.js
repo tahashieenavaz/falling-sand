@@ -14,8 +14,8 @@ import createBoard from "@functions/createBoard";
 import updateBoard from "@functions/updateBoard";
 import clearBoard from "@functions/clearBoard";
 
-import CanvasEvents from "./namespaces/CanvasEvents";
-import addCanvasEvents from "./functions/addCanvasEvents";
+import CanvasEvents from "@namespaces/CanvasEvents";
+import addCanvasEvents from "@functions/addCanvasEvents";
 
 const canvas = createCanvas();
 const board = createBoard();
