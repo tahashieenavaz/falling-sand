@@ -1,4 +1,4 @@
 export default {
-  rows: 50,
-  cols: 50,
+  rows: 250,
+  cols: 250,
 };

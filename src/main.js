@@ -1,4 +1,6 @@
 import "./style.css";
+import Board from "@classes/Board";
+
 import appendBody from "@functions/appendBody";
 import createCanvas from "@functions/createCanvas";
 
@@ -20,11 +22,11 @@ import addCanvasEvents from "@functions/addCanvasEvents";
 let mode = "classic";
 
 const canvas = createCanvas();
-const board = createBoard();
+const board = new Board();
 const [dx, dy] = getDifferentials(canvas);
 const [ROWS, COLS] = getDimensions();
 
-addCanvasEvents(canvas, board);
+addCanvasEvents(canvas, board.get());
 appendBody(canvas);
 
 let lastUpdate = 0;
@@ -32,8 +34,8 @@ let lastUpdate = 0;
 (function animate(timestamp) {
   clearBoard(canvas);
   drawGrid(canvas, ROWS, COLS);
-  drawBoard(canvas, board, mode);
-  updateBoard(board);
+  drawBoard(canvas, board.get(), mode);
+  updateBoard(board.get());
   requestAnimationFrame(animate);
 })();
 
@@ -44,3 +46,7 @@ Array.from(document.querySelectorAll("button"))
       mode = button.dataset.click ?? "classic";
     });
   });
+
+document.querySelector("button.reset").addEventListener("click", () => {
+  board.reset();
+});
