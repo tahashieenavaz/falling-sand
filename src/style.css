@@ -14,5 +14,7 @@ canvas {
   border: 1px solid white;
 }
 .controls {
+  display: flex;
+  justify-content: space-between;
   margin-block: 1rem;
 }
