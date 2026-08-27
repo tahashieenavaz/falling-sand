@@ -12,7 +12,7 @@ const ROWS = getConfig("rows");
 const COLS = getConfig("cols");
 
 const canvas = createCanvas();
-const [dx, dy] = getDifferentials();
+const [dx, dy] = getDifferentials(canvas);
 
 appendBody(canvas);
 
