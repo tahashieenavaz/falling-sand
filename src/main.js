@@ -14,28 +14,24 @@ import clearBoard from "@functions/clearBoard";
 
 import CanvasEvents from "./namespaces/CanvasEvents";
 
-const [ROWS, COLS] = getDimensions();
 const canvas = createCanvas();
+const board = createBoard();
 const [dx, dy] = getDifferentials(canvas);
-
-appendBody(canvas);
-
-const board = createBoard(ROWS, COLS);
+const [ROWS, COLS] = getDimensions();
 
 canvas.addEventListener("mousedown", CanvasEvents.mousedown);
 canvas.addEventListener("mouseup", CanvasEvents.mouseup);
 canvas.addEventListener("mousemove", (event) => {
   CanvasEvents.mousemove(event, canvas, board);
 });
+appendBody(canvas);
+
 let lastUpdate = 0;
 
 (function animate(timestamp) {
-  if (timestamp - lastUpdate > 1000) {
-    lastUpdate = timestamp;
-    clearBoard(canvas);
-    updateBoard(board);
-  }
+  clearBoard(canvas);
   drawGrid(canvas, ROWS, COLS);
   drawBoard(canvas, board);
+  updateBoard(board);
   requestAnimationFrame(animate);
 })();

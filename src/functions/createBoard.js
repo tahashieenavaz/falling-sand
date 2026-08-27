@@ -1,7 +1,6 @@
-export default function createBoard(...args) {
-  if (args.length != 2) {
-    throw new Error("createBoard accepts two args: rows, cols.");
-  }
+import getDimensions from "@functions/getDimensions";
 
-  return Array.from({ length: args[0] }, () => Array(args[1]).fill(0));
+export default function createBoard() {
+  const [rows, cols] = getDimensions();
+  return Array.from({ length: rows }, () => Array(cols).fill(0));
 }
