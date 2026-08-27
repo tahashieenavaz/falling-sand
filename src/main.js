@@ -35,11 +35,6 @@ canvas.addEventListener("mousedown", (event) => {
   isolate(canvas, (context) =>
     context.clearRect(0, 0, canvas.width, canvas.height),
   );
-  // isolate(canvas, (context) => {
-  //   context.fillStyle = "white";
-  //   context.fillRect(rectangle[0] * dx, rectangle[1] * dy, dx, dy);
-  //   context.fill();
-  // });
   drawGrid(canvas, ROWS, COLS);
   drawBoard(canvas, board);
   requestAnimationFrame(animate);
